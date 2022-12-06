@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: rgba(138, 200, 171, 1.0);
+    background: -webkit-linear-gradient(bottom right, rgba(138, 200, 171, 1.0), rgba(28, 63, 112, 1.0));
+    background: -moz-linear-gradient(bottom right, rgba(138, 200, 171, 1.0), rgba(28, 63, 112, 1.0));
+    background: linear-gradient(to top left, rgba(138, 200, 171, 1.0), rgba(28, 63, 112, 1.0));
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(150px, auto) repeat(5, 125px); 
+    /*this is for the display(first row)^^      ^^ this is for the buttons*/
+    /* it gives the display a min height of 120px, but the max is 
+    automatic(grows to fit) to fit the longer input of numbers */
+
+}
+
+.calculator-grid button{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background: rgba(255,255,255,.75);
+}
+
+.calculator-grid button:hover{
+    background: rgba(255,255,255,.90);
+}
+
+.calculator-grid .display{
+    /* grid-column-start: 1;
+    grid-column-end: 5; */
+    /* ^ this is the same as line 46 */
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 10px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.display .current{
+    color: white;
+    font-size: 2.5rem;
+}
+
+.display .previous{
+    color: rgba(255,255,255,.75);
+    font-size: 1.25rem;
+}
+
+.span-two{
+    grid-column: span 2;
+}
+
